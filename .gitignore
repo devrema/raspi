@@ -1,0 +1,45 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+dist/
+build/
+*.egg-info/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Pytest
+.cache
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Migrations
+migrations/
+
+# mypy
+.mypy_cache/
+
+# coverage reports
+htmlcov/
+.coverage
+
+# local settings
+.local/
+
+# dotenv
+.env

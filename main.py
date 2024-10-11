@@ -1,6 +1,10 @@
 import machine
 import time
 
+# Initializing Watchdog timer with a 5-second timeout (5000 ms)
+# The Watchdog Timer (WDT) will reset the system if not "fed" within 5 seconds.
+wdt = machine.WDT(timeout=5000)
+
 # LEDs initialized with PWM to control brightness
 # Using PWM to control LED brightness instead of just ON/OFF
 led_r = machine.PWM(machine.Pin(15), freq=1000)  # Red LED on pin 15
@@ -56,9 +60,13 @@ screen_down.value(0)
 
 # Main loop controlling projector and screen based on switch inputs
 while True:
+    # Feed the Watchdog Timer in every loop iteration
+    # This resets the Watchdog's countdown and prevents a system reset.
+    wdt.feed()
+
     # Get the current time for use in debouncing and time-based logic
     current_time = time.ticks_ms()
-    
+
     # --- Projector controls ---
 
     # Checking if switch1 is pressed and the projector is in the "up" state
